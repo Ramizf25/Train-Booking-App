@@ -13,7 +13,8 @@ class User(models.Model):
     nationality = models.CharField(choices=['INDIAN', 'OTHERS'])
 
 class Trains(models.model):
-    train_no = models.IntegerField(primary_key=True)
+    train_no = models.IntegerField()
+    train_name = models.CharField()
     date = models.DateField()
     seats_AC = models.IntegerField()
     seats_Sleeper = models.IntegerField()
@@ -23,7 +24,7 @@ class Bookings(models.Model):
     user_id = models.ForeignKey(User)
     train = models.ForeignKey(Trains)
     status = models.CharField(choices=['CONFIRMED', 'CANCELLED'])
-    
+
 
 
 
