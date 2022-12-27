@@ -5,11 +5,11 @@ from django.db import models
 User
 """
 class Gender(models.Model):
-    gender_choice = models.CharField(max_length=16, unique=True)
+    gender_choice = models.CharField(max_length=16, unique=True,default="Gender")
     def __str__(self):
         return self.gender_choice
 class Nationality(models.Model):
-    nationality_choice = models.CharField(max_length=16, unique=True)
+    nationality_choice = models.CharField(max_length=16, unique=True, default="India")
     def __str__(self):
         return self.nationality_choice
 
@@ -24,6 +24,8 @@ class User(models.Model):
     email = models.EmailField()
     nationality = models.ForeignKey(Nationality, on_delete=models.CASCADE,default="")
 
+    def __str__(self):
+        return self.username
 """
 Trains
 """
@@ -34,6 +36,8 @@ class Trains(models.Model):
     seats_AC = models.IntegerField()
     seats_Sleeper = models.IntegerField()
 
+    def __str__(self):
+        return self.train_name
 """
 Bookings
 """
@@ -45,9 +49,28 @@ class Bookings(models.Model):
     id = models.IntegerField(primary_key=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     train = models.ForeignKey(Trains,on_delete=models.CASCADE)
-    status = models.ForeignKey(Status, null=True, blank=True, db_index=True,on_delete=models.CASCADE)
+    status = models.ForeignKey(Status, on_delete=models.CASCADE, default="")
 
+    def __str__(self):
+        return self.id
 
+"""
+Passenger Details
+"""
+class Preference(models.Model):
+    preference_choice = models.CharField(max_length=19, unique=True, default="No Preference",editable=True)
 
+    def __str__(self):
+        return self.preference_choice
+
+class Passengers(models.Model):
+    name = models.IntegerField(default="Passenger Name")
+    age = models.CharField(max_length=25,default="Age", editable=True)
+    gender = models.ForeignKey(Gender, on_delete=models.CASCADE)
+    nationality = models.ForeignKey(Nationality, on_delete=models.CASCADE)
+    preference = models.ForeignKey(Preference, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.train_name
 
 

@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework import viewsets, status, mixins
-from .models import User, Gender, Nationality, Trains,Status,Bookings
+from .models import User, Gender, Nationality, Trains,Status,Bookings,Passengers,Preference
 from .serializers import UserSerializer,GenderSerializer,NationalitySerializer,TrainsSerializer\
-    ,StatusSerializer,BookingsSerializer
+    ,StatusSerializer,BookingsSerializer,PassengerSerializer,PreferenceSerializer
 from rest_framework.response import Response
 from rest_framework import filters
 # Create your views here.
@@ -35,3 +35,12 @@ class StatusViewSet(viewsets.ModelViewSet):
 class BookingsViewSet(viewsets.ModelViewSet):
     queryset = Bookings.objects.all()
     serializer_class = BookingsSerializer
+"""
+Passenger details
+"""
+class PassengerViewSet(viewsets.ModelViewSet):
+    queryset = Passengers.objects.all()
+    serializer_class = PassengerSerializer
+class PreferenceViewSet(viewsets.ModelViewSet):
+    queryset = Preference.objects.all()
+    serializer_class = PreferenceSerializer

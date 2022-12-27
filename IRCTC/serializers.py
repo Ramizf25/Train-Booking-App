@@ -1,17 +1,23 @@
 from rest_framework import serializers
-from .models import User,Gender,Nationality,Trains,Status,Bookings
+from .models import User, Gender, Nationality, Trains, Status, Bookings, Preference,Passengers
 
 """
 User
 """
+
+
 class GenderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Gender
         fields = '__all__'
+
+
 class NationalitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Nationality
         fields = '__all__'
+
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -20,6 +26,8 @@ class UserSerializer(serializers.ModelSerializer):
 """
 Trains
 """
+
+
 class TrainsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Trains
@@ -27,11 +35,26 @@ class TrainsSerializer(serializers.ModelSerializer):
 """
 Bookings
 """
+
+
 class StatusSerializer(serializers.ModelSerializer):
     class Meta:
         model = Status
         fields = '__all__'
+
+
 class BookingsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bookings
+        fields = '__all__'
+"""
+Passenger Details
+"""
+class PassengerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Passengers
+        fields = '__all__'
+class PreferenceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Preference
         fields = '__all__'
