@@ -36,6 +36,7 @@ function TrainsList() {
             <datalist id='Quota'>
                 <option value="General"/>
                 <option value="Senior Citizen"/>
+                <option value="Tatkal"/>
             </datalist>
         </div><br/>
         <button onClick={() => dispatch(fetchTrains(searchParams))}>Search</button>
