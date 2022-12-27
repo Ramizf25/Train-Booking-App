@@ -8,7 +8,8 @@ const client = axios.create({
 
 export const fetchTrains = createAsyncThunk('/trains/list', async () => {
   const response = await client.get('http://127.0.0.1:8000/api/trains/');
-  return response.data()
+  //console.log("response.data = ",response.data)
+  return response.data
 })
 
 
