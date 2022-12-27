@@ -19,6 +19,6 @@ function TrainsList() {
         </>
         
     )
-}
+  }
 
 export default TrainsList
