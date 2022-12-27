@@ -3,8 +3,10 @@ import { fetchTrains } from './TrainsListSlice'
 
 function TrainsList() {
     const dispatch = useDispatch();
+
     const trains_list = useSelector(state => {return state.TrainsList.trains});
     console.log(trains_list)
+ 
     const listItems = trains_list.map(train =>
       <li key={train.id}>
         {"name: "}{train.train_name}{" ,"}   
