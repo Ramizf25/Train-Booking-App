@@ -1,14 +1,14 @@
 import TrainsList from './features/TrainsList/TrainsList'
 import BookingList from './features/Booking/Booking';
-
+import Passengerdetails from './features/passengerdetails';
 
 function App() {
   return(
     <>
-      <TrainsList/>
+      {/* <TrainsList/>
       
-      <BookingList/>
-
+      <BookingList/> */}
+      <Passengerdetails/>
     </>
     
   )
