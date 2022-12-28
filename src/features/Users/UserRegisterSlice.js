@@ -4,7 +4,7 @@ import axios from 'axios'
 const initialState = []
 
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
-  const response = await client.get('/api/users')
+  const response = await client.get('/fakeApi/users')
   return response.data
 })
 
