@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets, status, mixins
 from .models import User, Gender, Nationality, Trains,Status,Bookings,Passengers,Preference
 from .serializers import UserSerializer,GenderSerializer,NationalitySerializer,TrainsSerializer\
@@ -26,6 +27,8 @@ Trains
 class TrainsViewSet(viewsets.ModelViewSet):
     queryset = Trains.objects.all()
     serializer_class = TrainsSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['date', 'departure', 'arrival']
 """
 Bookings
 """

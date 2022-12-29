@@ -23,21 +23,33 @@ class User(models.Model):
     dob = models.DateField()
     email = models.EmailField()
     nationality = models.ForeignKey(Nationality, on_delete=models.CASCADE,default="")
-
+    
     def __str__(self):
         return self.username
 """
 Trains
 """
 class Trains(models.Model):
+
     train_no = models.IntegerField()
     train_name = models.CharField(max_length=25)
+    departure = models.CharField(max_length=16, default='')
+    arrival = models.CharField(max_length=16, default='')
     date = models.DateField()
-    seats_AC = models.IntegerField()
-    seats_Sleeper = models.IntegerField()
-
+    seats_AC_general = models.IntegerField(default=0)
+    seats_Sleeper_general = models.IntegerField(default=0)
+    seats_AC_senior = models.IntegerField(default=0)
+    seats_Sleeper_senior = models.IntegerField(default=0)
+    seats_AC_general_tatkal = models.IntegerField(default=0)
+    seats_Sleeper_general_tatkal = models.IntegerField(default=0)
+    seats_AC_senior_tatkal = models.IntegerField(default=0)
+    seats_Sleeper_senior_tatkal = models.IntegerField(default=0)
+    
     def __str__(self):
         return self.train_name
+
+
+
 """
 Bookings
 """
