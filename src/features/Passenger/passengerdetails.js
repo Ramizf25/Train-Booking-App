@@ -17,11 +17,11 @@ function Passengerdetails() {
     console.log(data)
 
     function submit(event) {
-        axios.post("http://127.0.0.1:8000/api/passenger-details/", data.data).then(function (response) {
+        for (const ele of data){axios.post("http://127.0.0.1:8000/api/passenger-details/", ele).then(function (response) {
             console.log(response);
         }).catch(function (error) {
             console.log(error);
-        });
+        });}
     }
 
     function addRow(event) {
@@ -49,12 +49,27 @@ function Passengerdetails() {
                                     onChange={(event) => { reactToChange(event, 'name', index) }} />
                                 <input type={"text"} placeholder="Age" value={passenger.age}
                                     onChange={(event) => { reactToChange(event, 'age', index) }} />
-                                <input type={"text"} placeholder="Gender" value={passenger.gender}
+                                <input list='gender' type={"text"} placeholder="Gender" value={passenger.gender}
                                     onChange={(event) => { reactToChange(event, 'gender', index) }} />
-                                <input type={"text"} placeholder="Preference" value={passenger.preference}
+                                    <datalist id ='gender'>
+                                        <option value={"Male"}/>
+                                        <option value={"Female"}/>
+                                        <option value={"Transgender"}/>
+                                    </datalist>
+                                <input list = 'preference' type={"text"} placeholder="Preference" value={passenger.preference}
                                     onChange={(event) => { reactToChange(event, 'preference', index) }} />
-                                <input type={"text"} placeholder="Nationality" value={passenger.nationality}
+                                    <datalist id = 'preference'>
+                                        <option value={"No Preference"}/>
+                                        <option value={"Lower"}/>
+                                        <option value={"Middle"}/>
+                                        <option value={"Upper"}/>
+                                    </datalist>
+                                <input list = "nationality" type={"text"} placeholder="Nationality" value={passenger.nationality}
                                     onChange={(event) => { reactToChange(event, 'nationality', index) }} />
+                                    <datalist id="nationality">
+                                        <option value={"India"}/>
+                                        <option value={"other"}/>
+                                    </datalist>
                             </div>
                         )
 
