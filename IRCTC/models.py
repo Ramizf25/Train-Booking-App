@@ -76,11 +76,11 @@ class Preference(models.Model):
         return self.preference_choice
 
 class Passengers(models.Model):
-    name = models.IntegerField(default="Passenger Name")
+    name = models.CharField(max_length=25, default="Passenger Name")
     age = models.CharField(max_length=25,default="Age", editable=True)
-    gender = models.ForeignKey(Gender, on_delete=models.CASCADE)
-    nationality = models.ForeignKey(Nationality, on_delete=models.CASCADE)
-    preference = models.ForeignKey(Preference, on_delete=models.CASCADE)
+    gender = models.CharField(max_length=25, default="")
+    nationality = models.CharField(max_length=25, default="")
+    preference = models.CharField(max_length=25, default="")
 
     def __str__(self):
         return self.train_name
