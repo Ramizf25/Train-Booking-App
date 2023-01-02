@@ -1,14 +1,14 @@
 
-body{  
+ /* body{  
   font-family: Calibri, Helvetica, sans-serif;  
-  background-color: pink;  
-}  
+  background-color: rgb(254, 252, 252);  
+}    */
 .container {  
     padding: 50px;  
-  background-color: lightblue;  
+  background-color: rgb(166, 208, 222);  
 }  
   
-input[type=text], input[type=password], textarea {  
+.input[type=text], input[type=], textarea {  
   width: 100%;  
   padding: 15px;  
   margin: 5px 0 22px 0;  
@@ -16,17 +16,17 @@ input[type=text], input[type=password], textarea {
   border: none;  
   background: #f1f1f1;  
 }  
-input[type=text]:focus, input[type=password]:focus {  
-  background-color: orange;  
+.input[type=text]:focus, input[type=]:focus {  
+  background-color: rgb(244, 242, 238);  
   outline: none;  
 }  
- div {  
+/* .container {  
             padding: 10px 0;  
-         }  
-hr {  
+         }   */
+/* hr {  
   border: 1px solid #f1f1f1;  
   margin-bottom: 25px;  
-}  
+}   */
 .registerbtn {  
   background-color: #4CAF50;  
   color: white;  
