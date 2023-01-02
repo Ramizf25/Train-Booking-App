@@ -44,7 +44,10 @@ class Trains(models.Model):
     seats_Sleeper_general_tatkal = models.IntegerField(default=0)
     seats_AC_senior_tatkal = models.IntegerField(default=0)
     seats_Sleeper_senior_tatkal = models.IntegerField(default=0)
+    time = models.DateTimeField(auto_now=True)
+    arrival_time = models.DateTimeField(auto_now=True)
     
+
     def __str__(self):
         return self.train_name
 
