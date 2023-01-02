@@ -21,7 +21,6 @@ const TrainsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchTrains.fulfilled, (state, action) => {
-      console.log("kkkkkk");
       state.status = "succeeded";
       action.payload.forEach((train) => {
         state.trains.push(train);

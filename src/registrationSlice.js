@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import registration from "./Registration";
+import Registration from "./Registration";
 
 const initialStateValue = {
   firstName: "",
@@ -56,7 +56,13 @@ const registrationSlice = createSlice({
       state.DOB = action.payload;
     },
     updateNationality: (state, action) => {
-      state.nationality = 1;
+      console.log(action);
+      if (action.payload === "Indian") {
+        state.nationality = 1;
+      } else {
+        state.nationality = 2;
+      }
+      // state.nationality = 1;
     },
     updatePhoneno: (state, action) => {
       state.phoneno = action.payload;
