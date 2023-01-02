@@ -4,10 +4,11 @@ import ContactUs from './features/help/help'
 import About from './features/About/about'
 import TrainsList from './features/TrainsList/TrainsList'
 import Passengerdetails from './features/Passenger/passengerdetails'
+import './App.css'
 
 function App() {
   return(
-  <>
+  <div className='irctc'>
     <Router>
       <Routes>
         <Route exact path="/contact" element={<ContactUs/>}/>
@@ -17,7 +18,7 @@ function App() {
         <Route exact path="/passenger/" element={<Passengerdetails/>}/>
       </Routes>
     </Router>
-  </>
+  </div>
   )
 }
 
