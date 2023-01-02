@@ -1,6 +1,5 @@
 import React from "react";
 import "./HomePage.css";
-import { Link } from "react-router-dom";
 import SearchTrain from "../features/TrainsList/SearchTrain";
 
 function HomePage() {

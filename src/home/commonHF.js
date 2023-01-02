@@ -37,7 +37,7 @@ const CommonHF = (props) => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="">
+                  <a className="nav-link" href="http://localhost:3000/Registration">
                     My account
                   </a>
                 </li>
@@ -75,31 +75,26 @@ const CommonHF = (props) => {
             <a
               className="bi bi-facebook "
               target="_blank"
+              rel="noreferrer"
               href="https://www.facebook.com/"
-            ></a>
-          </button>
-          <button type="button" className="btn btn-link btn-floating mx-1">
-            <a
-              className="bi bi-linkedin "
-              target="_blank"
-              href="https://www.facebook.com/"
-            ></a>
+            >facebook</a>
           </button>
           <button type="button" className="btn btn-link btn-floating mx-1">
             <a
               className="bi bi-youtube "
               target="_blank"
+              rel="noreferrer"
               href="https://www.youtube.com/"
-            ></a>
+            >Youtube</a>
           </button>
           <button type="button" className="btn btn-link btn-floating mx-1">
-            <a className="bi bi-google" href="https://www.google.com/"></a>
+            <a className="bi bi-google" href="https://www.google.com/">Google</a>
           </button>
           <button type="button" className="btn btn-link btn-floating mx-1">
             <a
               className="bi bi-instagram"
-              herf="https://www.instagram.com/"
-            ></a>
+              href="https://www.instagram.com/"
+            >Instagram</a>
           </button>
         </div>
         {/* Section: Links  */}
@@ -122,7 +117,7 @@ const CommonHF = (props) => {
                 {/* Links */}
                 <h6 className="text-uppercase fw-bold mb-4">Products</h6>
                 <p>
-                  <a href="#!" className="text-reset">
+                  <a href="/" className="text-reset">
                     Booking
                   </a>
                 </p>
@@ -148,12 +143,12 @@ const CommonHF = (props) => {
                 {/* Links */}
                 <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
                 <p>
-                  <a>
+                  <a href="/Registration">
                     <Link to="registration">Register</Link>
                   </a>
                 </p>
                 <p>
-                  <a href="#!" className="text-reset">
+                  <a href="/Registration" className="text-reset">
                     Settings
                   </a>
                 </p>

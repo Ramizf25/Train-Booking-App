@@ -38,9 +38,9 @@ function Registration() {
   const email = useSelector((state) => {
     return state.registration.email;
   });
-  const phoneno = useSelector((state) => {
-    return state.registration.phoneno;
-  });
+  // const phoneno = useSelector((state) => {
+  //   return state.registration.phoneno;
+  // });
   const gender = useSelector((state) => {
     return state.registration.gender;
   });

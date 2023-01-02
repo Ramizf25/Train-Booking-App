@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import Registration from "../features/Users/Registration";
 
 const initialStateValue = {
   firstName: "",
@@ -46,7 +45,7 @@ const registrationSlice = createSlice({
       state.email = action.payload;
     },
     updateGender: (state, action) => {
-      if (action.payload == "Male") {
+      if (action.payload === "Male") {
         state.gender = 1;
       } else {
         state.gender = 2;
