@@ -25,12 +25,13 @@ function TrainsList() {
       <div>
         <b>
           {train.train_name}
-          {"("}
+          {" ("}
           {train.train_no}
-          {")"}
+          {") "}
         </b>
-        <b>{train.date}</b> | {searchParams.from} {train.time.slice(14, 19)}{" "}
-        {"=>"} {searchParams.to}
+        <b>{train.date}</b> {" | "} {searchParams.from}{" "}
+        {train.time.slice(14, 19)} {"=>"} {searchParams.to}{" "}
+        {train.arrival_time.slice(14, 19)}
       </div>
       <div>
         <input
@@ -53,7 +54,7 @@ function TrainsList() {
         />{" "}
         Sleeper ({train.seats_Sleeper_general})
       </div>
-      <button
+      <button className="bookNow"
         onClick={() => {
           routeToBooking(train);
         }}
@@ -65,16 +66,18 @@ function TrainsList() {
 
   return (
     <>
-      <div>
-        {trainsList.length} Results for{" "}
-        <b>
-          {searchParams.from} {"=>"} {searchParams.to} | {searchParams.date}
-        </b>{" "}
-        for Quota | {searchParams.quota}
+      <div className="container">
+        <div>
+          {trainsList.length} Results for{" "}
+          <b>
+            {searchParams.from} {"=>"} {searchParams.to} | {searchParams.date}
+          </b>{" "}
+          for Quota | {searchParams.quota}
+        </div>
+        <br />
+        <div>{listItems}</div>
+        <br />
       </div>
-      <br />
-      <div>{listItems}</div>
-      <br />
     </>
   );
 }

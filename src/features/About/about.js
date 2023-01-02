@@ -1,11 +1,25 @@
 import React from "react";
 
-const Abouti = () => {
-return (
-	<div>
-	<h4>About</h4>
-	</div>
-);
-};
-
-export default Abouti;
+function about() {
+  return (
+    <>
+      <h1>Here is the policy of our websites</h1>; <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+    </>
+  );
+}
+export default about;
