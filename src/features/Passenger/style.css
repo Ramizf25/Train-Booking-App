@@ -1,4 +1,22 @@
 .container {  
-    padding: 50px;  
-  background-color: rgb(166, 208, 222);  
+    padding: 25px;  
+    background-color: rgb(166, 208, 222);  
+    align-self: center;
+    margin-top: 1px;
 }  
+
+.buttons {  
+    background-color: #4CAF50;  
+    color: rgb(255, 255, 255);  
+    padding: 5px 20px;  
+    margin-top: 20px;
+    margin-bottom:25px ;  
+    border: none;  
+    cursor: pointer;  
+    width: ;  
+    opacity: 0.9;  
+  }  
+  .buttons:hover {  
+    opacity: 0.8;  
+    color: rgba(15, 15, 15, 0.918);
+  } 

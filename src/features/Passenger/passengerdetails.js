@@ -51,6 +51,7 @@ function Passengerdetails() {
 
   return (
     <div className="container">
+        <h3>Passenger Details :</h3>
       <div className="form">
         {data.map((passenger, index) => {
           return (
@@ -118,8 +119,8 @@ function Passengerdetails() {
         })}
       </div>
       <div className="button">
-        <button onClickCapture={addRow}>Add</button>
-        <button onClickCapture={submit}>Continue</button>
+        <button className="buttons" onClickCapture={addRow}>Add Passenger</button><br></br>
+        <button className="buttons" onClickCapture={submit}>Continue</button>
       </div>
     </div>
   );
