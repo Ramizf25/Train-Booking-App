@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { fetchTrains } from "./TrainsListSlice";
-import { from, to, date, general, quota } from "./TrainsListSlice";
+import { fetchTrains } from "../../Slices/TrainsListSlice";
+import { from, to, date, general, quota } from "../../Slices/TrainsListSlice";
 
 function SearchTrain() {
   const searchParams = useSelector((state) => {
@@ -12,7 +12,7 @@ function SearchTrain() {
 
   const routeChange = () => {
     dispatch(fetchTrains(searchParams));
-    let search_path = "/trains/list/";
+    let search_path = "/searchResults";
     navigate(search_path);
   };
 

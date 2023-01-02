@@ -1,15 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./TrainsList.css";
-import { trainID, seatOpted, bookingDate } from "./TrainsListSlice";
+import { trainID, seatOpted, bookingDate } from "../../Slices/TrainsListSlice";
 
 function TrainsList() {
   const dispatch = useDispatch();
-  const bookingDetails = useSelector((state) => {
-    return state.TrainsList.bookingDetails;
-  });
+  const navigate = useNavigate();
 
-  let navigate = useNavigate();
   const trainsList = useSelector((state) => {
     return state.TrainsList.trains;
   });
@@ -18,18 +15,19 @@ function TrainsList() {
   });
 
   const routeToBooking = (train) => {
-        dispatch(trainID(train.train_no))
-        dispatch(bookingDate(train.date))
-        let path = "/about/";
-        //navigate(path);
-        console.log(bookingDetails);
+    dispatch(trainID(train.train_no));
+    dispatch(bookingDate(train.date));
+    navigate("/passenger/");
   };
 
   const listItems = trainsList.map((train) => (
     <div className="train">
       <div>
         <b>
-          {train.train_name}{"("}{train.train_no}{")"}
+          {train.train_name}
+          {"("}
+          {train.train_no}
+          {")"}
         </b>
         <b>{train.date}</b> | {searchParams.from} {train.time.slice(14, 19)}{" "}
         {"=>"} {searchParams.to}
@@ -55,7 +53,13 @@ function TrainsList() {
         />{" "}
         Sleeper ({train.seats_Sleeper_general})
       </div>
-      <button onClick={routeToBooking(train)}>Book Now</button>
+      <button
+        onClick={() => {
+          routeToBooking(train);
+        }}
+      >
+        Book Now
+      </button>
     </div>
   ));
 
