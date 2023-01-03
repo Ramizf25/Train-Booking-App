@@ -66,8 +66,6 @@ class Bookings(models.Model):
     train = models.ForeignKey(Trains,on_delete=models.CASCADE)
     status = models.ForeignKey(Status, on_delete=models.CASCADE, default="")
 
-    def __str__(self):
-        return self.id
 
 """
 Passenger Details
@@ -84,8 +82,11 @@ class Passengers(models.Model):
     gender = models.CharField(max_length=25, default="")
     nationality = models.CharField(max_length=25, default="")
     preference = models.CharField(max_length=25, default="")
+    booking_id = models.ForeignKey(Bookings, on_delete=models.CASCADE)
+    class_AC_Sleeper = models.CharField(max_length=25, default="")
+    quota_general_tatkal = models.CharField(max_length=25, default="")
 
-    def __str__(self):
-        return self.train_name
+    # def __str__(self):
+    #     return self.train_name
 
 
