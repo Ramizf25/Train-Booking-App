@@ -61,7 +61,7 @@ function Passengerdetails() {
                 }}
               />
               <input className="input"
-                type={"text"}
+                type={"int"}
                 placeholder="Age"
                 value={passenger.age}
                 onChange={(event) => {
