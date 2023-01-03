@@ -2,10 +2,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./TrainsList.css";
 import { trainID, seatOpted, bookingDate } from "../../Slices/TrainsListSlice";
+import { useState } from "react";
 
 function TrainsList() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [BookingStatus, setBookingStatus] = useState(true)
+
 
   const trainsList = useSelector((state) => {
     return state.TrainsList.trains;
@@ -14,9 +17,14 @@ function TrainsList() {
     return state.TrainsList.searchParams;
   });
 
-  const routeToBooking = (train) => {
+  const onchangeDetails = (seat, train) => {
     dispatch(trainID(train.train_no));
     dispatch(bookingDate(train.date));
+    dispatch(seatOpted(seat));
+    setBookingStatus(false)
+  }
+
+  const routeToBooking = () => {
     navigate("/passenger/");
   };
 
@@ -38,9 +46,7 @@ function TrainsList() {
           type="radio"
           value="AC"
           name="seats"
-          onClick={() => {
-            dispatch(seatOpted("AC"));
-          }}
+          onClick={(event) => {onchangeDetails(event.target.value, train);}}
         />{" "}
         AC(
         {train.seats_AC_general})
@@ -48,19 +54,11 @@ function TrainsList() {
           type="radio"
           value="Sleeper"
           name="seats"
-          onClick={() => {
-            dispatch(seatOpted("Sleeper"));
-          }}
+          onClick={(event) => {onchangeDetails(event.target.value, train);}}
         />{" "}
         Sleeper ({train.seats_Sleeper_general})
       </div>
-      <button className="bookNow"
-        onClick={() => {
-          routeToBooking(train);
-        }}
-      >
-        Book Now
-      </button>
+      
     </div>
   ));
 
@@ -77,6 +75,11 @@ function TrainsList() {
         <br />
         <div>{listItems}</div>
         <br />
+        <button disabled={BookingStatus} className="bookNow"
+        onClick={routeToBooking}
+      >
+        Book Now
+      </button>
       </div>
     </>
   );
