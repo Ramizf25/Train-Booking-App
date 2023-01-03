@@ -1,8 +1,9 @@
 .container {  
-    padding: 25px;  
+    padding: 5px;  
     background-color: rgb(166, 208, 222);  
     align-self: center;
     margin-top: 1px;
+    width: 80%;
 }  
 
 .buttons {  
