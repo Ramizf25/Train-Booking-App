@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addRow, editRow } from "../../Slices/passengerSlice";
+import { useNavigate } from "react-router-dom";
 import './style.css'
 
 
@@ -11,10 +12,12 @@ function Passengerdetails() {
     return state.PassengerDetails.passenger;
   });
   const dispatch = useDispatch();
- 
+  let navigate = useNavigate();
   
   function submit(event) {
     console.log("DATA xx MUTATED", data);
+    let search_path = "/travel-details";
+    navigate(search_path);
     for (const ele of data) {
       axios
         .post("http://127.0.0.1:8000/api/passenger-details/", ele)

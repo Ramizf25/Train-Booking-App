@@ -25,7 +25,8 @@ function TrainsList() {
   }
 
   const routeToBooking = () => {
-    navigate("/passenger/");
+    let path = "/passenger"
+    navigate(path);
   };
 
   const listItems = trainsList.map((train) => (
@@ -75,7 +76,7 @@ function TrainsList() {
         <br />
         <div>{listItems}</div>
         <br />
-        <button disabled={BookingStatus} className="bookNow"
+        <button  className="bookNow"
         onClick={routeToBooking}
       >
         Book Now

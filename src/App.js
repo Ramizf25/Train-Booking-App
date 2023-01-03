@@ -5,6 +5,7 @@ import TrainsList from "./features/TrainsList/TrainsList";
 import Registration from "./features/Users/Registration"
 import LoginPage from "./features/Users/LoginPage";
 import Passengerdetails from "./features/Passenger/passengerdetails";
+import Detailslanding from "./features/Passenger/detailslanding";
 import HomePage from "./home/HomePage";
 import CommonHF from "./home/commonHF";
 //import './App.css'
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/Registration" element={<Registration/>} />
           <Route exact path="/searchResults/" element={<TrainsList />} />
           <Route exact path="/passenger/" element={<Passengerdetails />} />
+          <Route exact path="/travel-details/" element={<Detailslanding />} />
           <Route exact path="/" element={<HomePage />} />
         </Routes>
       </CommonHF>
