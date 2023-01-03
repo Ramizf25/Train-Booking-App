@@ -1,20 +1,21 @@
 import axios from "axios";
 //import {useNavigate} from 'react-router-dom';
 import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { addRow, editRow } from "../../Slices/passengerSlice";
 import './style.css'
 
 
 function Passengerdetails() {
-  const initialState = [
-    { name: "", age: "", gender: "", nationality: "", preference: "" },
-  ];
-  const [data, setData] = useState(initialState);
-
+  const data = useSelector((state) => {
+    return state.PassengerDetails.passenger;
+  });
+  const dispatch = useDispatch();
+ 
   useEffect(() => {
-    console.log("DATA MUTATED", data);
+    console.log("DATA xx MUTATED", data);
   }, [data]);
 
-  console.log(data);
 
   function submit(event) {
     for (const ele of data) {
@@ -29,34 +30,31 @@ function Passengerdetails() {
     }
   }
 
-  function addRow(event) {
+  function addaRow(event) {
     event.preventDefault();
     event.stopPropagation();
     console.log(
       "THIS IS THE EVENT PAYLOAD",
-      event.isDefaultPrevented(),
-      event.isPropagationStopped()
+    data
     );
-    setData((d) => {
-      return [...d, { ...initialState[0] }];
-    });
+    dispatch(addRow());
+    
   }
 
   function reactToChange(event, property, index) {
-    setData((data) => {
-      data[index][property] = event.target.value;
-      return [...data];
-    });
+    dispatch(editRow({value:event.target.value, property, index}))
+
+   
   }
 
   return (
     <div className="container">
-        <h3>Passenger Details :</h3>
+      <h3>Passenger Details :</h3>
       <div className="form">
         {data.map((passenger, index) => {
           return (
-            <div key={"passenger-" + index}>
-              <input
+            <div key={"passenger-" + index} >
+              <input className="input"
                 type={"text"}
                 placeholder="Name"
                 value={passenger.name}
@@ -64,7 +62,7 @@ function Passengerdetails() {
                   reactToChange(event, "name", index);
                 }}
               />
-              <input
+              <input className="input"
                 type={"text"}
                 placeholder="Age"
                 value={passenger.age}
@@ -72,7 +70,7 @@ function Passengerdetails() {
                   reactToChange(event, "age", index);
                 }}
               />
-              <input
+              <input className="input"
                 list="gender"
                 type={"text"}
                 placeholder="Gender"
@@ -101,7 +99,7 @@ function Passengerdetails() {
                 <option value={"Middle"} />
                 <option value={"Upper"} />
               </datalist>
-              <input
+              <input className="input"
                 list="nationality"
                 type={"text"}
                 placeholder="Nationality"
@@ -119,7 +117,7 @@ function Passengerdetails() {
         })}
       </div>
       <div className="button">
-        <button className="buttons" onClickCapture={addRow}>Add Passenger</button><br></br>
+        <button className="buttons" onClickCapture={addaRow}>Add Passenger</button><br></br>
         <button className="buttons" onClickCapture={submit}>Continue</button>
       </div>
     </div>
